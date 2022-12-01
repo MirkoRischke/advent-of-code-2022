@@ -9,10 +9,21 @@ class FindHighestAmountOfCaloriesTest : BehaviorSpec({
 
     Given("I have an empty list") {
         val elves = emptyList<Elf>()
-        Then("it throws an error") {
-            val error = shouldThrow<Error> { finder.getCalories(elves) }
-            error.message shouldBe "Empty List is not allowed"
+
+        When("I try to get the maximum amount of calories") {
+            Then("it throws an error") {
+                val error = shouldThrow<Error> { finder.getMaximumCalories(elves) }
+                error.message shouldBe "Empty List is not allowed"
+            }
         }
+
+        When("I try to get the total amount of calories of the three best supplied elves") {
+            Then("it throws an error") {
+                val error = shouldThrow<Error> { finder.getCaloriesOfRichestElves(elves, 3) }
+                error.message shouldBe "Empty List is not allowed"
+            }
+        }
+
     }
 
     Given("I have a list with one elf") {
@@ -22,21 +33,42 @@ class FindHighestAmountOfCaloriesTest : BehaviorSpec({
 
         val elves = listOf(elf)
 
-        Then("it returns its calories") {
-            finder.getCalories(elves) shouldBe 300
+        When("I get the maximum amount of calories") {
+            val solution = finder.getMaximumCalories(elves)
+            Then("it returns its calories") {
+                solution shouldBe 300
+            }
+        }
+
+        When("I get the total amount of calories of the three best supplied elves") {
+            val solution = finder.getCaloriesOfRichestElves(elves, 3)
+            Then("it returns its calories") {
+                solution shouldBe 300
+            }
         }
     }
 
     Given("I have multiple elves") {
         val poorElf = Elf().apply { addFood(Food(1)) }
-        val mediumElf = Elf().apply { addFood(Food(100)) }
+        val mediumElf1 = Elf().apply { addFood(Food(2)) }
+        val mediumElf2 = Elf().apply { addFood(Food(3)) }
         val richElf = Elf()
-            .apply { addFood(Food(60)) }
-            .apply { addFood(Food(60)) }
-        val elves = listOf(poorElf, richElf, mediumElf)
+            .apply { addFood(Food(4)) }
+            .apply { addFood(Food(4)) }
+        val elves = listOf(mediumElf2, poorElf, richElf, mediumElf1)
 
-        Then("it returns the position of the elf with the most calories") {
-            finder.getCalories(elves) shouldBe 120
+        When("I get the maximum amount of calories") {
+            val solution = finder.getMaximumCalories(elves)
+            Then("it returns its calories") {
+                solution shouldBe 8
+            }
+        }
+
+        When("I get the total amount of calories of the three best supplied elves") {
+            val solution = finder.getCaloriesOfRichestElves(elves, 3)
+            Then("it returns its calories") {
+                solution shouldBe 13
+            }
         }
     }
 })

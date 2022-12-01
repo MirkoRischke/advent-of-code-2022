@@ -8,8 +8,13 @@ class Solver {
     private val elfParser = BlankLineSeparatedElvesParser()
     private val finder = FindHighestAmountOfCalories()
 
-    fun solve(input: Path): Int {
+    fun firstSolution(input: Path): Int {
         val elves = elfParser.createElves(input.readLines())
-        return finder.getCalories(elves.toList())
+        return finder.getMaximumCalories(elves.toList())
+    }
+
+    fun secondSolution(input: Path): Int {
+        val elves = elfParser.createElves(input.readLines())
+        return finder.getCaloriesOfRichestElves(elves.toList(), 3)
     }
 }
