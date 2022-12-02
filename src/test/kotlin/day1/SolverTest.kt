@@ -2,15 +2,14 @@ package day1
 
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
-import java.nio.file.Path
-import java.nio.file.Paths
+import testutils.ResourceHelper.pathFor
 
 class SolverTest : BehaviorSpec({
 
     val solver = Solver()
 
     Given("I have the example input") {
-        val file: Path = Paths.get(this.javaClass.getResource("/day1/example_input.txt")!!.toURI())
+        val file = pathFor("/day1/example_input.txt")
         When("I solve the first puzzle") {
             val solution = solver.firstSolution(file)
 
@@ -28,7 +27,7 @@ class SolverTest : BehaviorSpec({
     }
 
     Given("I have my personal input") {
-        val file: Path = Paths.get(this.javaClass.getResource("/day1/personal_input.txt")!!.toURI())
+        val file = pathFor("/day1/personal_input.txt")
 
         When("I solve the first puzzle") {
             val solution = solver.firstSolution(file)

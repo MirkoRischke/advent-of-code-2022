@@ -2,7 +2,7 @@ package day2
 
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
-import java.nio.file.Paths
+import testutils.ResourceHelper.pathFor
 
 class SolverTest : DescribeSpec({
 
@@ -10,7 +10,7 @@ class SolverTest : DescribeSpec({
 
     describe("first puzzle") {
         it("returns the correct result for the example") {
-            val input = Paths.get(this.javaClass.getResource("/day1/example_input.txt")!!.toURI())
+            val input = pathFor("/day1/example_input.txt")
 
             val result = solver.solveFirstPuzzle(input)
 
@@ -18,7 +18,7 @@ class SolverTest : DescribeSpec({
         }
 
         it("returns the correct result for my personal input") {
-            val input = Paths.get(this.javaClass.getResource("/day1/personal_input.txt")!!.toURI())
+            val input = pathFor("/day1/personal_input.txt")
 
             val result = solver.solveFirstPuzzle(input)
 
