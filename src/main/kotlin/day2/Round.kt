@@ -2,9 +2,9 @@ package day2
 
 class Round(
     private val myChoice: Choice,
-    private val enemyChoice: Choice) {
+    private val enemyChoice: Choice): RoundResultProvider {
 
-    fun getResult(): Result {
+    override fun getResult(): Result {
         return when(myChoice) {
             Choice.ROCK -> when(enemyChoice) {
                 Choice.ROCK -> Result.DRAW
@@ -24,12 +24,6 @@ class Round(
         }
     }
 
-}
-
-enum class Result {
-    VICTORY,
-    DEFEAT,
-    DRAW
 }
 
 enum class Choice {
