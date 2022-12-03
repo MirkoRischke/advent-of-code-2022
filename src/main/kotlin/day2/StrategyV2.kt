@@ -1,7 +1,7 @@
 package day2
 
-data class StrategyV2(private val enemiesChoice: Column1, private val roundResult: Column2) {
-    fun toRound(): Round {
+data class StrategyV2(private val enemiesChoice: Column1, private val roundResult: Column2): Strategy() {
+    override fun toRound(): Round {
         val enemiesDecryptedChoice = when(enemiesChoice) {
             Column1.A -> Choice.ROCK
             Column1.B -> Choice.PAPER

@@ -7,9 +7,9 @@ import io.kotest.matchers.shouldBe
 class StrategyGuideTest : DescribeSpec({
     describe("toMatch") {
         it("parses empty strategy to empty Match") {
-            val emptyStrategies: List<Strategy> = emptyList()
+            val emptyStrategies: List<StrategyV1> = emptyList()
 
-            val match = StrategyGuide(emptyStrategies).toMatch()
+            val match = StrategyGuideV1(emptyStrategies).toMatch()
 
             match shouldBe Match(emptyList())
         }
@@ -17,11 +17,11 @@ class StrategyGuideTest : DescribeSpec({
 
         it("parses multiple strategies to a whole guide") {
             val strategies = listOf(
-                Strategy(Column1.A, Column2.Y),
-                Strategy(Column1.B, Column2.X),
-                Strategy(Column1.C, Column2.Z),
+                StrategyV1(Column1.A, Column2.Y),
+                StrategyV1(Column1.B, Column2.X),
+                StrategyV1(Column1.C, Column2.Z),
             )
-            val strategyGuide = StrategyGuide(strategies)
+            val strategyGuide = StrategyGuideV1(strategies)
 
             val match = strategyGuide.toMatch()
 
@@ -42,12 +42,12 @@ class StrategyGuideTest : DescribeSpec({
                 C Z
             """.trimIndent())
 
-            val strategyGuide = StrategyGuide.fromPath(file.toPath())
+            val strategyGuide = StrategyGuideV1.fromPath(file.toPath())
 
-            val expectedStrategyGuide = StrategyGuide(listOf(
-                Strategy(Column1.A, Column2.Y),
-                Strategy(Column1.B, Column2.X),
-                Strategy(Column1.C, Column2.Z),
+            val expectedStrategyGuide = StrategyGuideV1(listOf(
+                StrategyV1(Column1.A, Column2.Y),
+                StrategyV1(Column1.B, Column2.X),
+                StrategyV1(Column1.C, Column2.Z),
             ))
             strategyGuide shouldBe expectedStrategyGuide
 
