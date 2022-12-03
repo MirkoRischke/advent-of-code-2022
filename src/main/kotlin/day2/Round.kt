@@ -5,23 +5,10 @@ data class Round(
     private val myChoice: Choice
 ) {
     fun getResult(): Result {
-        return when(myChoice) {
-            Choice.ROCK -> when(enemyChoice) {
-                Choice.ROCK -> Result.DRAW
-                Choice.PAPER -> Result.DEFEAT
-                Choice.SCISSOR -> Result.VICTORY
-            }
-            Choice.PAPER -> when(enemyChoice) {
-                Choice.ROCK -> Result.VICTORY
-                Choice.PAPER -> Result.DRAW
-                Choice.SCISSOR -> Result.DEFEAT
-            }
-            Choice.SCISSOR -> when(enemyChoice) {
-                Choice.ROCK -> Result.DEFEAT
-                Choice.PAPER -> Result.VICTORY
-                Choice.SCISSOR -> Result.DRAW
-            }
-        }
+        if (myChoice == enemyChoice) return Result.DRAW
+
+        return if (choiceOrder.getElementAfter(myChoice) == enemyChoice) Result.VICTORY
+        else Result.DEFEAT
     }
 
     fun getScore(): Score {
@@ -29,18 +16,14 @@ data class Round(
     }
 
     companion object {
+
+        // a choice always beats the next element in the ring
+        private val choiceOrder = Ring(Choice.ROCK, Choice.SCISSOR, Choice.PAPER)
+
         fun fromEnemiesChoiceAndResult(enemiesChoice: Choice, result: Result): Round {
-            return when(result) {
-                Result.VICTORY -> when(enemiesChoice) {
-                    Choice.ROCK -> Round(enemiesChoice, Choice.PAPER)
-                    Choice.PAPER -> Round(enemiesChoice, Choice.SCISSOR)
-                    Choice.SCISSOR -> Round(enemiesChoice, Choice.ROCK)
-                }
-                Result.DEFEAT -> when(enemiesChoice) {
-                    Choice.ROCK -> Round(enemiesChoice, Choice.SCISSOR)
-                    Choice.PAPER -> Round(enemiesChoice, Choice.ROCK)
-                    Choice.SCISSOR -> Round(enemiesChoice, Choice.PAPER)
-                }
+            return when (result) {
+                Result.VICTORY -> Round(enemiesChoice, choiceOrder.getElementBefore(enemiesChoice))
+                Result.DEFEAT -> Round(enemiesChoice, choiceOrder.getElementAfter(enemiesChoice))
                 Result.DRAW -> Round(enemiesChoice, enemiesChoice)
             }
         }
