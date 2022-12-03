@@ -1,6 +1,6 @@
 package day2
 
-class Strategy(private val enemiesChoice: EnemiesEncryptedChoice, private val yourChoice: YourEncryptedChoice) {
+data class Strategy(private val enemiesChoice: EnemiesEncryptedChoice, private val yourChoice: YourEncryptedChoice) {
     fun toRound(): Round {
         val enemiesDecryptedChoice = when(enemiesChoice) {
             EnemiesEncryptedChoice.A -> Choice.ROCK

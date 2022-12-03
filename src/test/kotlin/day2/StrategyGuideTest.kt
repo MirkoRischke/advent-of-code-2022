@@ -1,6 +1,7 @@
 package day2
 
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.engine.spec.tempfile
 import io.kotest.matchers.shouldBe
 
 class StrategyGuideTest : DescribeSpec({
@@ -29,6 +30,27 @@ class StrategyGuideTest : DescribeSpec({
                 Round(Choice.PAPER, Choice.ROCK),
                 Round(Choice.SCISSOR, Choice.SCISSOR),
             ))
+        }
+    }
+
+    describe("fromPath") {
+        it("parses file to strategyGuide") {
+            val file = tempfile()
+            file.writeText("""
+                A Y
+                B X
+                C Z
+            """.trimIndent())
+
+            val strategyGuide = StrategyGuide.fromPath(file.toPath())
+
+            val expectedStrategyGuide = StrategyGuide(listOf(
+                Strategy(EnemiesEncryptedChoice.A, YourEncryptedChoice.Y),
+                Strategy(EnemiesEncryptedChoice.B, YourEncryptedChoice.X),
+                Strategy(EnemiesEncryptedChoice.C, YourEncryptedChoice.Z),
+            ))
+            strategyGuide shouldBe expectedStrategyGuide
+
         }
     }
 })
