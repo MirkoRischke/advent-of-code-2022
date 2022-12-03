@@ -5,6 +5,8 @@ import java.nio.file.Path
 class Solver {
 
     fun solveFirstPuzzle(input: Path): Int {
-        return 0;
+        return StrategyGuide.fromPath(input)
+            .toMatch()
+            .getScore()
     }
 }

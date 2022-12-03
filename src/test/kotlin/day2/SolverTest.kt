@@ -10,7 +10,7 @@ class SolverTest : DescribeSpec({
 
     describe("first puzzle") {
         it("returns the correct result for the example") {
-            val input = pathFor("/day1/example_input.txt")
+            val input = pathFor("/day2/example_input.txt")
 
             val result = solver.solveFirstPuzzle(input)
 
@@ -18,11 +18,11 @@ class SolverTest : DescribeSpec({
         }
 
         it("returns the correct result for my personal input") {
-            val input = pathFor("/day1/personal_input.txt")
+            val input = pathFor("/day2/personal_input.txt")
 
             val result = solver.solveFirstPuzzle(input)
 
-            result shouldBe 15
+            result shouldBe 12772
         }
     }
 })
