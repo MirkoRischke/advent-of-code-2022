@@ -11,6 +11,8 @@ class Solver {
     }
 
     fun solveSecondPuzzle(input: Path): Int {
-        return 0
+        return StrategyGuideV2.fromPath(input)
+            .toMatch()
+            .getScore()
     }
 }

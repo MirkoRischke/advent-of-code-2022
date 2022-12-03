@@ -40,7 +40,7 @@ class SolverTest : DescribeSpec({
 
             val result = solver.solveSecondPuzzle(input)
 
-            result shouldBe 12
+            result shouldBe 11618
         }
     }
 })
