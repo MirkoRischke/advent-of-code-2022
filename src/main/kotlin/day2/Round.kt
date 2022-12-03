@@ -28,6 +28,24 @@ data class Round(
         return myChoice.score + getResult().score
     }
 
+    companion object {
+        fun fromEnemiesChoiceAndResult(enemiesChoice: Choice, result: Result): Round {
+            return when(result) {
+                Result.VICTORY -> when(enemiesChoice) {
+                    Choice.ROCK -> Round(enemiesChoice, Choice.PAPER)
+                    Choice.PAPER -> Round(enemiesChoice, Choice.SCISSOR)
+                    Choice.SCISSOR -> Round(enemiesChoice, Choice.ROCK)
+                }
+                Result.DEFEAT -> when(enemiesChoice) {
+                    Choice.ROCK -> Round(enemiesChoice, Choice.SCISSOR)
+                    Choice.PAPER -> Round(enemiesChoice, Choice.ROCK)
+                    Choice.SCISSOR -> Round(enemiesChoice, Choice.PAPER)
+                }
+                Result.DRAW -> Round(enemiesChoice, enemiesChoice)
+            }
+        }
+    }
+
 }
 
 typealias Score = Int

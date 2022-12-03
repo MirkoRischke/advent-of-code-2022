@@ -84,4 +84,56 @@ class RoundTest : DescribeSpec({
         }
 
     }
+
+    describe("from enemies choice and result") {
+        describe("draws") {
+            Choice.values().forEach {
+                it("chooses $it as my choice when enemy chose $it") {
+                    val result = Round.fromEnemiesChoiceAndResult(it, Result.DRAW)
+
+                    result shouldBe Round(it, it)
+                }
+            }
+        }
+
+        describe("victories") {
+            it("chooses rock if enemy chose scissor") {
+                val result = Round.fromEnemiesChoiceAndResult(Choice.SCISSOR, Result.VICTORY)
+
+                result shouldBe Round(Choice.SCISSOR, Choice.ROCK)
+            }
+
+            it("chooses scissor if enemy chose paper") {
+                val result = Round.fromEnemiesChoiceAndResult(Choice.PAPER, Result.VICTORY)
+
+                result shouldBe Round(Choice.PAPER, Choice.SCISSOR)
+            }
+
+            it("chooses paper if enemy chose rock") {
+                val result = Round.fromEnemiesChoiceAndResult(Choice.ROCK, Result.VICTORY)
+
+                result shouldBe Round(Choice.ROCK, Choice.PAPER)
+            }
+        }
+
+        describe("defeat") {
+            it("chooses rock if enemy chose paper") {
+                val result = Round.fromEnemiesChoiceAndResult(Choice.PAPER, Result.DEFEAT)
+
+                result shouldBe Round(Choice.PAPER, Choice.ROCK)
+            }
+
+            it("chooses scissor if enemy chose rock") {
+                val result = Round.fromEnemiesChoiceAndResult(Choice.ROCK, Result.DEFEAT)
+
+                result shouldBe Round(Choice.ROCK, Choice.SCISSOR)
+            }
+
+            it("chooses paper if enemy chose scissor") {
+                val result = Round.fromEnemiesChoiceAndResult(Choice.SCISSOR, Result.DEFEAT)
+
+                result shouldBe Round(Choice.SCISSOR, Choice.PAPER)
+            }
+        }
+    }
 })

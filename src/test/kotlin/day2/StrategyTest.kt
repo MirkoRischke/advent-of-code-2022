@@ -7,9 +7,9 @@ import io.kotest.matchers.shouldBe
 class StrategyTest : DescribeSpec({
     describe("to round") {
         listOf(
-            Strategy(EnemiesEncryptedChoice.A, YourEncryptedChoice.Y) to Round(Choice.ROCK, Choice.PAPER),
-            Strategy(EnemiesEncryptedChoice.B, YourEncryptedChoice.X) to Round(Choice.PAPER, Choice.ROCK),
-            Strategy(EnemiesEncryptedChoice.C, YourEncryptedChoice.Z) to Round(Choice.SCISSOR, Choice.SCISSOR)
+            Strategy(Column1.A, Column2.Y) to Round(Choice.ROCK, Choice.PAPER),
+            Strategy(Column1.B, Column2.X) to Round(Choice.PAPER, Choice.ROCK),
+            Strategy(Column1.C, Column2.Z) to Round(Choice.SCISSOR, Choice.SCISSOR)
         ).forAll { input ->
             it("parses strategy ${input.first} to ${input.second}") {
                 input.first.toRound() shouldBe input.second
