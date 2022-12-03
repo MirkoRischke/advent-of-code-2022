@@ -25,4 +25,22 @@ class SolverTest : DescribeSpec({
             result shouldBe 12772
         }
     }
+
+    describe("second puzzle") {
+        it("returns the correct result for the example") {
+            val input = pathFor("/day2/example_input.txt")
+
+            val result = solver.solveSecondPuzzle(input)
+
+            result shouldBe 12
+        }
+
+        it("returns the correct result for my personal input") {
+            val input = pathFor("/day2/personal_input.txt")
+
+            val result = solver.solveSecondPuzzle(input)
+
+            result shouldBe 12
+        }
+    }
 })

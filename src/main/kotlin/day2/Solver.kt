@@ -9,4 +9,8 @@ class Solver {
             .toMatch()
             .getScore()
     }
+
+    fun solveSecondPuzzle(input: Path): Int {
+        return 0
+    }
 }
