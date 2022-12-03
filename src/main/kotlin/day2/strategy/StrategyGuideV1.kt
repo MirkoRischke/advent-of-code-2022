@@ -1,4 +1,4 @@
-package day2
+package day2.strategy
 
 import java.nio.file.Path
 

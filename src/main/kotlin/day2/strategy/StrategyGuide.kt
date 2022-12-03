@@ -1,5 +1,6 @@
-package day2
+package day2.strategy
 
+import day2.game.Match
 import java.nio.file.Path
 import kotlin.io.path.forEachLine
 

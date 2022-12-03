@@ -1,5 +1,6 @@
-package day2
+package day2.utils
 
+import day2.utils.Ring
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe

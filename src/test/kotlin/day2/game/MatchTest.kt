@@ -1,5 +1,8 @@
-package day2
+package day2.game
 
+import day2.game.Choice
+import day2.game.Match
+import day2.game.Round
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 

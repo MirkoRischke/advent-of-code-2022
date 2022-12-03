@@ -1,5 +1,7 @@
 package day2
 
+import day2.strategy.StrategyGuideV1
+import day2.strategy.StrategyGuideV2
 import java.nio.file.Path
 
 class Solver {

@@ -1,4 +1,6 @@
-package day2
+package day2.game
+
+import day2.utils.Ring
 
 data class Round(
     private val enemyChoice: Choice,

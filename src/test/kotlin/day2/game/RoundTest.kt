@@ -1,4 +1,4 @@
-package day2
+package day2.game
 
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe

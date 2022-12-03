@@ -1,4 +1,6 @@
-package day2
+package day2.strategy
+
+import day2.game.Round
 
 abstract class Strategy {
     abstract fun toRound(): Round

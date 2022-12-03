@@ -1,5 +1,7 @@
-package day2
+package day2.strategy
 
+import day2.game.Choice
+import day2.game.Round
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.inspectors.forAll
 import io.kotest.matchers.shouldBe

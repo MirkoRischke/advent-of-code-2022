@@ -1,4 +1,4 @@
-package day2
+package day2.utils
 
 class Ring<T>(private vararg val elements: T) {
     fun getElementAfter(element: T): T {

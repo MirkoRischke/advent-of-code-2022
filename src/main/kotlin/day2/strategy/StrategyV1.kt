@@ -1,4 +1,7 @@
-package day2
+package day2.strategy
+
+import day2.game.Choice
+import day2.game.Round
 
 data class StrategyV1(private val enemiesChoice: Column1, private val yourChoice: Column2): Strategy() {
     override fun toRound(): Round {
