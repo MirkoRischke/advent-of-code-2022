@@ -17,9 +17,9 @@ class MatchTest : DescribeSpec({
         }
 
         it("returns sum of round scores") {
-            val victoryWithRock = Round(Choice.ROCK, Choice.SCISSOR) // 6 + 1 = 7
+            val victoryWithRock = Round(Choice.SCISSOR, Choice.ROCK) // 6 + 1 = 7
             val drawWithScissor = Round(Choice.SCISSOR, Choice.SCISSOR) // 3 + 3 = 6
-            val defeatWithPaper = Round(Choice.PAPER, Choice.SCISSOR) // 0 + 2 = 2
+            val defeatWithPaper = Round(Choice.SCISSOR, Choice.PAPER) // 0 + 2 = 2
             val rounds = listOf(victoryWithRock, drawWithScissor, defeatWithPaper)
 
             val score = Match(rounds).getScore()

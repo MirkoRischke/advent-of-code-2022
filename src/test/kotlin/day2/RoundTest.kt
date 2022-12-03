@@ -21,7 +21,7 @@ class RoundTest : DescribeSpec({
                 Choice.SCISSOR to Choice.PAPER
             ).forEach { combination ->
                 it("returns victory when I chose ${combination.first} and my enemy ${combination.second} ") {
-                    Round(combination.first, combination.second).getResult() shouldBe Result.VICTORY
+                    Round(combination.second, combination.first).getResult() shouldBe Result.VICTORY
                 }
             }
         }
@@ -33,7 +33,7 @@ class RoundTest : DescribeSpec({
                 Choice.SCISSOR to Choice.ROCK
             ).forEach { combination ->
                 it("returns defeat when I chose ${combination.first} and my enemy ${combination.second} ") {
-                    Round(combination.first, combination.second).getResult() shouldBe Result.DEFEAT
+                    Round(combination.second, combination.first).getResult() shouldBe Result.DEFEAT
                 }
             }
         }
@@ -43,15 +43,15 @@ class RoundTest : DescribeSpec({
     describe("getScore") {
         describe("defeats") {
             it("returns 1 for rock") {
-                Round(Choice.ROCK, Choice.PAPER).getScore() shouldBe 1
+                Round(Choice.PAPER, Choice.ROCK).getScore() shouldBe 1
             }
 
             it("returns 2 for paper") {
-                Round(Choice.PAPER, Choice.SCISSOR).getScore() shouldBe 2
+                Round(Choice.SCISSOR, Choice.PAPER).getScore() shouldBe 2
             }
 
             it("returns 3 for scissor") {
-                Round(Choice.SCISSOR, Choice.ROCK).getScore() shouldBe 3
+                Round(Choice.ROCK, Choice.SCISSOR).getScore() shouldBe 3
             }
         }
 
@@ -71,15 +71,15 @@ class RoundTest : DescribeSpec({
 
         describe("victory") {
             it("returns 7 for rock") {
-                Round(Choice.ROCK, Choice.SCISSOR).getScore() shouldBe 7
+                Round(Choice.SCISSOR, Choice.ROCK).getScore() shouldBe 7
             }
 
             it("returns 8 for paper") {
-                Round(Choice.PAPER, Choice.ROCK).getScore() shouldBe 8
+                Round(Choice.ROCK, Choice.PAPER).getScore() shouldBe 8
             }
 
             it("returns 9 for scissor") {
-                Round(Choice.SCISSOR, Choice.PAPER).getScore() shouldBe 9
+                Round(Choice.PAPER, Choice.SCISSOR).getScore() shouldBe 9
             }
         }
 

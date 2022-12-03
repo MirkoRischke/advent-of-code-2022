@@ -1,8 +1,9 @@
 package day2
 
-class Round(
-    private val myChoice: Choice,
-    private val enemyChoice: Choice) {
+data class Round(
+    private val enemyChoice: Choice,
+    private val myChoice: Choice
+) {
     fun getResult(): Result {
         return when(myChoice) {
             Choice.ROCK -> when(enemyChoice) {
