@@ -2,9 +2,8 @@ package day2
 
 class Round(
     private val myChoice: Choice,
-    private val enemyChoice: Choice): RoundResultProvider {
-
-    override fun getResult(): Result {
+    private val enemyChoice: Choice) {
+    fun getResult(): Result {
         return when(myChoice) {
             Choice.ROCK -> when(enemyChoice) {
                 Choice.ROCK -> Result.DRAW
@@ -24,11 +23,22 @@ class Round(
         }
     }
 
+    fun getScore(): Score {
+        return myChoice.score + getResult().score
+    }
+
 }
 
-enum class Choice {
-    ROCK,
-    PAPER,
-    SCISSOR
+typealias Score = Int
+
+enum class Choice(val score: Score) {
+    ROCK(1),
+    PAPER(2),
+    SCISSOR(3),
 }
 
+enum class Result(val score: Score) {
+    VICTORY(6),
+    DEFEAT(0),
+    DRAW(3),
+}
