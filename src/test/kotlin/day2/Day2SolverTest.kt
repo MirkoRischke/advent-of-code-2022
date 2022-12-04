@@ -4,9 +4,9 @@ import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 import testutils.ResourceHelper.pathFor
 
-class SolverTest : DescribeSpec({
+class Day2SolverTest : DescribeSpec({
 
-    val solver = Solver()
+    val solver = Day2Solver()
 
     describe("first puzzle") {
         it("returns the correct result for the example") {
