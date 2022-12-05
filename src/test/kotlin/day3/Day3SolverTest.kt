@@ -35,7 +35,7 @@ class Day3SolverTest : BehaviorSpec({
             val input = ResourceHelper.pathFor("/day3/example_input.txt")
             When("I solve it") {
                 val result = solver.solveSecondPuzzle(input)
-                Then("the result is 157") {
+                Then("the result is 70") {
                     result shouldBe 70
                 }
             }
@@ -45,8 +45,8 @@ class Day3SolverTest : BehaviorSpec({
             val input = ResourceHelper.pathFor("/day3/personal_input.txt")
             When("I solve it") {
                 val result = solver.solveSecondPuzzle(input)
-                Then("the result is X") {
-                    result shouldBe 70
+                Then("the result is 2973") {
+                    result shouldBe 2973
                 }
             }
         }

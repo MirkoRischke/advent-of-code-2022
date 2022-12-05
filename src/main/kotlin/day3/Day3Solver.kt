@@ -16,6 +16,11 @@ class Day3Solver : Solver {
     }
 
     override fun solveSecondPuzzle(input: Path): Int {
-        return 0
+        return input.useLines { lines ->
+            lines
+                .map { Rucksack.fromString(it) }
+                .chunked(3)
+                .sumOf { Item(ElfGroup(it).badge).score }
+        }
     }
 }
