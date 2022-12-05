@@ -24,7 +24,7 @@ class Day3SolverTest : BehaviorSpec({
             When("I solve it") {
                 val result = solver.solveFirstPuzzle(input)
                 Then("the result is X") {
-                    result shouldBe 157
+                    result shouldBe 7716
                 }
             }
         }
