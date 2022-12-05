@@ -29,4 +29,16 @@ class RucksackTest : BehaviorSpec({
             }
         }
     }
+
+    Given("I want to create a Rucksack from a string") {
+        val string = "abacda"
+        val rucksack = Rucksack.fromString(string)
+        Then("it puts the first half into the first compartment and the second half into the second compartment") {
+            val itemsAB = setOf(Item('a'), Item('b'))
+            val itemsCDA = setOf(Item('c'), Item('d'), Item('a'))
+
+            rucksack.firstCompartment.getUniqueItems() shouldBe itemsAB
+            rucksack.secondCompartment.getUniqueItems() shouldBe itemsCDA
+        }
+    }
 })

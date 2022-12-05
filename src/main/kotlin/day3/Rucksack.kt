@@ -9,4 +9,21 @@ class Rucksack {
             .intersect(secondCompartment.getUniqueItems())
             .first()
     }
+
+    companion object {
+        fun fromString(string: String): Rucksack {
+            val firstHalf = string.substring(0, string.length / 2)
+            val secondHalf = string.substring(string.length / 2)
+
+            val rucksack = Rucksack()
+            firstHalf.forEach {
+                rucksack.firstCompartment.addItem(Item(it))
+            }
+            secondHalf.forEach {
+                rucksack.secondCompartment.addItem(Item(it))
+            }
+
+            return rucksack
+        }
+    }
 }
