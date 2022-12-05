@@ -27,6 +27,13 @@ class RucksackTest : BehaviorSpec({
                     duplicatedItem shouldBe itemA
                 }
             }
+
+            When("I ask for the unique items") {
+                val uniqueItems = rucksack.findUniqueItems()
+                Then("it returns the items from both compartments") {
+                    uniqueItems shouldBe setOf(itemA, itemB, itemC)
+                }
+            }
         }
     }
 

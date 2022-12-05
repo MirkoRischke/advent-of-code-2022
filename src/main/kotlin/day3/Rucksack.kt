@@ -10,6 +10,11 @@ class Rucksack {
             .first()
     }
 
+    fun findUniqueItems(): Set<Item> {
+        return firstCompartment.getUniqueItems()
+            .plus(secondCompartment.getUniqueItems())
+    }
+
     companion object {
         fun fromString(string: String): Rucksack {
             val firstHalf = string.substring(0, string.length / 2)

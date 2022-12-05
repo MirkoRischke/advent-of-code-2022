@@ -1,6 +1,6 @@
 package day3
 
-data class Item(private val letter: Char) {
+data class Item(val letter: Char) {
 
     val score: Int
     private val lowerCaseLetters = CharRange('a', 'z')
