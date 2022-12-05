@@ -29,4 +29,26 @@ class Day3SolverTest : BehaviorSpec({
             }
         }
     }
+
+    Given("Second puzzle") {
+        And("the sample input") {
+            val input = ResourceHelper.pathFor("/day3/example_input.txt")
+            When("I solve it") {
+                val result = solver.solveSecondPuzzle(input)
+                Then("the result is 157") {
+                    result shouldBe 70
+                }
+            }
+        }
+
+        And("my personal input") {
+            val input = ResourceHelper.pathFor("/day3/personal_input.txt")
+            When("I solve it") {
+                val result = solver.solveSecondPuzzle(input)
+                Then("the result is X") {
+                    result shouldBe 70
+                }
+            }
+        }
+    }
 })
