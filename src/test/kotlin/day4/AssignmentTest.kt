@@ -43,5 +43,14 @@ class AssignmentTest : DescribeSpec({
         }
     }
 
+    describe("fromString") {
+        it("returns assignment from string") {
+            val string = "1-3"
+
+            val result = Assignment.fromString(string)
+
+            result shouldBe Assignment(1,3)
+        }
+    }
 
 })

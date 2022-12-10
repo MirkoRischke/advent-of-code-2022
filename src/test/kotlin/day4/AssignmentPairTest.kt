@@ -51,4 +51,17 @@ class AssignmentPairTest : DescribeSpec({
         }
     }
 
+    describe("fromString") {
+        it("creates assignment pair from string") {
+            val string = "2-3,0-4"
+
+            val result = AssignmentPair.fromString(string)
+
+            result shouldBe AssignmentPair(
+                Assignment(2,3),
+                Assignment(0,4),
+            )
+        }
+    }
+
 })
