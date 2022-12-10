@@ -22,7 +22,7 @@ class Day5SolverTest : DescribeSpec({
 
             val result = solver.solveFirstPuzzle(input)
 
-            result shouldBe "CMZ"
+            result shouldBe "RFFFWBPNS"
         }
     }
 })

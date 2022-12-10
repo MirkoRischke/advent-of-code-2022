@@ -17,14 +17,17 @@ class SupplyStorage(private val stacks: List<Stack>) {
         }
     }
 
+    fun getTopCrates(): List<Crate> {
+        return stacks.map { it.topCrate }
+    }
+
     companion object {
-        fun fromDrawing(drawing: String): SupplyStorage {
-            val lines = drawing.lines()
-            val numberOfStacks = lines.last().split("   ").last().toInt()
+        fun fromDrawing(drawing: List<String>): SupplyStorage {
+            val numberOfStacks = drawing.last().split("   ").last().toInt()
             val stacks = List(numberOfStacks) { Stack() }
             val storage = SupplyStorage(stacks)
 
-            lines.reversed().drop(1).forEach {
+            drawing.reversed().drop(1).forEach {
                 addContainersFromLine(it, storage)
             }
 

@@ -58,6 +58,22 @@ class SupplyStorageTest : DescribeSpec({
         }
     }
 
+    describe("getTopCrates") {
+        it("returns the crates at the top of all the stacks") {
+            val storage = SupplyStorage(
+                listOf(
+                    Stack(listOf("A")),
+                    Stack(listOf("B", "C")),
+                    Stack(listOf("D", "E", "F")),
+                )
+            )
+
+            val result = storage.getTopCrates()
+
+            result shouldBe listOf("A", "C", "F")
+        }
+    }
+
     describe("fromDrawing") {
         it("creates the storage from the drawing") {
             val drawing = """
@@ -65,7 +81,7 @@ class SupplyStorageTest : DescribeSpec({
                     [N] [C]    
                     [Z] [M] [P]
                      1   2   3
-            """.trimIndent()
+            """.trimIndent().lines()
 
             val storage = SupplyStorage.fromDrawing(drawing)
 

@@ -1,9 +1,9 @@
 package day5
 
 data class Instruction(
-    private val amount: Int,
-    private val from: Int,
-    private val to: Int,
+    val amount: Int,
+    val from: Int,
+    val to: Int,
 ) {
     companion object {
         fun fromLine(line: String): Instruction {
