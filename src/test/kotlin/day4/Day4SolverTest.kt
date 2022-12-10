@@ -22,7 +22,7 @@ class Day4SolverTest : DescribeSpec({
 
             val result = solver.solveFirstPuzzle(input)
 
-            result shouldBe 2
+            result shouldBe 424
         }
     }
 
