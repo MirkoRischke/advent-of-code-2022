@@ -4,7 +4,7 @@ import Solver
 import java.nio.file.Path
 import kotlin.io.path.useLines
 
-class Day3Solver : Solver {
+class Day3Solver : Solver<Int> {
     override fun solveFirstPuzzle(input: Path): Int {
         return input.useLines { lines ->
             lines.sumOf { line ->

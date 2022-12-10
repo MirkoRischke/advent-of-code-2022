@@ -1,7 +1,7 @@
 import java.nio.file.Path
 
-interface Solver {
-    fun solveFirstPuzzle(input: Path): Int
+interface Solver<T> {
+    fun solveFirstPuzzle(input: Path): T
 
-    fun solveSecondPuzzle(input: Path): Int
+    fun solveSecondPuzzle(input: Path): T
 }

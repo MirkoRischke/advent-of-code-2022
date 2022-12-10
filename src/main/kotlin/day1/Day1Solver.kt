@@ -4,7 +4,7 @@ import Solver
 import java.nio.file.Path
 import kotlin.io.path.readLines
 
-class Day1Solver: Solver {
+class Day1Solver: Solver<Int> {
 
     private val elfParser = BlankLineSeparatedElvesParser()
     private val finder = FindHighestAmountOfCalories()
