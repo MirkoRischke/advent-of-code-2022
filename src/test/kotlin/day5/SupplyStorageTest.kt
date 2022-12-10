@@ -58,4 +58,21 @@ class SupplyStorageTest : DescribeSpec({
         }
     }
 
+    describe("fromDrawing") {
+        it("creates the storage from the drawing") {
+            val drawing = """
+                    [D]    
+                    [N] [C]    
+                    [Z] [M] [P]
+                     1   2   3
+            """.trimIndent()
+
+            val storage = SupplyStorage.fromDrawing(drawing)
+
+            storage.getStack(1).topCrate shouldBe "D"
+            storage.getStack(2).topCrate shouldBe "C"
+            storage.getStack(3).topCrate shouldBe "P"
+        }
+    }
+
 })
