@@ -26,4 +26,22 @@ class Day4SolverTest : DescribeSpec({
         }
     }
 
+    describe("puzzle 2") {
+        it("example input") {
+            val input = ResourceHelper.pathFor("/day4/example_input.txt")
+
+            val result = solver.solveSecondPuzzle(input)
+
+            result shouldBe 4
+        }
+
+        it("personal input") {
+            val input = ResourceHelper.pathFor("/day4/personal_input.txt")
+
+            val result = solver.solveSecondPuzzle(input)
+
+            result shouldBe 804
+        }
+    }
+
 })

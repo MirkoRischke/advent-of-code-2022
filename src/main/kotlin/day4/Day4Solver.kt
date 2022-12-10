@@ -10,6 +10,7 @@ class Day4Solver : Solver {
     }
 
     override fun solveSecondPuzzle(input: Path): Int {
-        return 0
+        return SectionAssignmentPairs.fromPath(input)
+            .countOverlappingAssignmentPairs()
     }
 }

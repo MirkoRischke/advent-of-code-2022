@@ -51,6 +51,49 @@ class AssignmentPairTest : DescribeSpec({
         }
     }
 
+    describe("hasOverlappingSections") {
+        it("returns false when there is no overlap") {
+            val assignmentPair = AssignmentPair(
+                Assignment(1, 2),
+                Assignment(3, 4)
+            )
+
+            val result = assignmentPair.hasOverlappingSections()
+
+            result shouldBe false
+        }
+
+        listOf(
+            AssignmentPair(
+                Assignment(1, 2),
+                Assignment(2, 3),
+            ),
+            AssignmentPair(
+                Assignment(1, 4),
+                Assignment(2, 3),
+            ),
+            AssignmentPair(
+                Assignment(2, 4),
+                Assignment(1, 2),
+            ),
+            AssignmentPair(
+                Assignment(2, 4),
+                Assignment(1, 5),
+            ),
+            AssignmentPair(
+                Assignment(1, 5),
+                Assignment(2, 4),
+            ),
+        ).forEach { assignmentPair ->
+            it("returns true when the assignments overlap") {
+                val result = assignmentPair.hasOverlappingSections()
+
+                result shouldBe true
+            }
+        }
+
+    }
+
     describe("fromString") {
         it("creates assignment pair from string") {
             val string = "2-3,0-4"

@@ -10,6 +10,12 @@ data class SectionAssignmentPairs(private val assignmentPairs: List<AssignmentPa
         }
     }
 
+    fun countOverlappingAssignmentPairs(): Int {
+        return assignmentPairs.count { assignmentPair ->
+            assignmentPair.hasOverlappingSections()
+        }
+    }
+
     companion object {
         fun fromPath(file: Path): SectionAssignmentPairs {
             val assignmentPairs: List<AssignmentPair> = file.useLines { lines ->
