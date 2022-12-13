@@ -11,5 +11,4 @@ class ElfGroup(rucksacks: List<Rucksack>) {
             }.first()
             .letter
     }
-
 }

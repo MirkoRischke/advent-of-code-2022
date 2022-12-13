@@ -21,7 +21,6 @@ class SectionAssignmentPairsTest : DescribeSpec({
         Assignment(4, 5),
     )
 
-
     describe("countObsoleteAssignmentPairs") {
         it("returns 0 for empty list") {
             val assignmentPairs = SectionAssignmentPairs(emptyList())
@@ -96,7 +95,7 @@ class SectionAssignmentPairsTest : DescribeSpec({
                 2-4,6-8
                 2-3,4-5
                 5-7,7-9
-            """.trimIndent()
+                """.trimIndent()
             )
 
             val assignmentPairs = SectionAssignmentPairs.fromPath(tempFile.toPath())
@@ -119,5 +118,4 @@ class SectionAssignmentPairsTest : DescribeSpec({
             )
         }
     }
-
 })

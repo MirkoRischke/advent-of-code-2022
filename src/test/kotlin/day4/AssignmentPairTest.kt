@@ -91,7 +91,6 @@ class AssignmentPairTest : DescribeSpec({
                 result shouldBe true
             }
         }
-
     }
 
     describe("fromString") {
@@ -101,10 +100,9 @@ class AssignmentPairTest : DescribeSpec({
             val result = AssignmentPair.fromString(string)
 
             result shouldBe AssignmentPair(
-                Assignment(2,3),
-                Assignment(0,4),
+                Assignment(2, 3),
+                Assignment(0, 4),
             )
         }
     }
-
 })

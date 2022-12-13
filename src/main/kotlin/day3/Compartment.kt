@@ -11,6 +11,4 @@ class Compartment {
     fun getUniqueItems(): Set<Item> {
         return items
     }
-
-
 }

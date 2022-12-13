@@ -2,8 +2,8 @@ package day2.strategy
 
 import day2.game.Round
 
-abstract class Strategy {
-    abstract fun toRound(): Round
+interface Strategy {
+    fun toRound(): Round
 }
 
 enum class Column1 {

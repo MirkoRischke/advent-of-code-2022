@@ -11,7 +11,6 @@ class BlankLineSeparatedElvesParser : ElvesParser {
                 }
             }
         }
-
     }
 
     private fun caloriesSegments(lines: Iterable<String>): List<List<Int>> {
@@ -32,5 +31,4 @@ class BlankLineSeparatedElvesParser : ElvesParser {
         result.add(currentList)
         return result
     }
-
 }

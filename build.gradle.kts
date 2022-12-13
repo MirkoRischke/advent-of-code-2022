@@ -1,7 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+
 plugins {
     kotlin("jvm") version "1.7.21"
+    id("io.gitlab.arturbosch.detekt") version "1.22.0"
 }
 
 group = "eu.rischke"
@@ -12,6 +14,8 @@ repositories {
 }
 
 dependencies {
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0")
+
     testImplementation(kotlin("test"))
 
     val kotestVersion = "5.5.4"
@@ -30,4 +34,10 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "17"
     }
+}
+
+detekt {
+    autoCorrect = true
+    buildUponDefaultConfig = true
+    config = files("$rootDir/detekt.yml")
 }

@@ -5,25 +5,24 @@ import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.shouldBe
 
 class FindHighestAmountOfCaloriesTest : BehaviorSpec({
-    val finder = FindHighestAmountOfCalories();
+    val finder = FindHighestAmountOfCalories()
 
     Given("I have an empty list") {
         val elves = emptyList<Elf>()
 
         When("I try to get the maximum amount of calories") {
             Then("it throws an error") {
-                val error = shouldThrow<Error> { finder.getMaximumCalories(elves) }
+                val error = shouldThrow<NoElvesPresent> { finder.getMaximumCalories(elves) }
                 error.message shouldBe "Empty List is not allowed"
             }
         }
 
         When("I try to get the total amount of calories of the three best supplied elves") {
             Then("it throws an error") {
-                val error = shouldThrow<Error> { finder.getCaloriesOfRichestElves(elves, 3) }
+                val error = shouldThrow<NoElvesPresent> { finder.getCaloriesOfRichestElves(elves, 3) }
                 error.message shouldBe "Empty List is not allowed"
             }
         }
-
     }
 
     Given("I have a list with one elf") {

@@ -13,5 +13,4 @@ class InstructionTest : DescribeSpec({
             instruction shouldBe Instruction(3, 2, 1)
         }
     }
-
 })

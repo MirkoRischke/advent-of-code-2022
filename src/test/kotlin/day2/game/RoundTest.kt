@@ -37,7 +37,6 @@ class RoundTest : DescribeSpec({
                 }
             }
         }
-
     }
 
     describe("getScore") {
@@ -82,7 +81,6 @@ class RoundTest : DescribeSpec({
                 Round(Choice.PAPER, Choice.SCISSOR).getScore() shouldBe 9
             }
         }
-
     }
 
     describe("from enemies choice and result") {

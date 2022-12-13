@@ -1,5 +1,3 @@
 package day1
 
-class Food(val calories: Int) {
-
-}
+class Food(val calories: Int)

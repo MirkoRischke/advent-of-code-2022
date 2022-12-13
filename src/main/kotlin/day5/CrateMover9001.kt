@@ -1,6 +1,6 @@
 package day5
 
-class CrateMover9001: Crane {
+class CrateMover9001 : Crane {
     override fun moveCrates(from: Stack, to: Stack, amount: Int) {
         val crates = mutableListOf<Crate>()
         repeat(amount) {

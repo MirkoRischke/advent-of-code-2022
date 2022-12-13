@@ -49,8 +49,7 @@ class AssignmentTest : DescribeSpec({
 
             val result = Assignment.fromString(string)
 
-            result shouldBe Assignment(1,3)
+            result shouldBe Assignment(1, 3)
         }
     }
-
 })

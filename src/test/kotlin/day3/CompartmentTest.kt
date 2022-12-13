@@ -36,7 +36,5 @@ class CompartmentTest : BehaviorSpec({
                 compartment.getUniqueItems() shouldBe setOf(item)
             }
         }
-
     }
-
 })

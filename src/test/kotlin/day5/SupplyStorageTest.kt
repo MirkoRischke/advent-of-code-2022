@@ -71,5 +71,4 @@ class SupplyStorageTest : DescribeSpec({
             storage.getStack(3).topCrate shouldBe "P"
         }
     }
-
 })

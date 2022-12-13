@@ -44,5 +44,4 @@ class Day1SolverTest : BehaviorSpec({
             }
         }
     }
-
 })

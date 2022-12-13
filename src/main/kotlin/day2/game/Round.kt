@@ -9,8 +9,11 @@ data class Round(
     fun getResult(): Result {
         if (myChoice == enemyChoice) return Result.DRAW
 
-        return if (choiceOrder.getElementAfter(myChoice) == enemyChoice) Result.VICTORY
-        else Result.DEFEAT
+        return if (choiceOrder.getElementAfter(myChoice) == enemyChoice) {
+            Result.VICTORY
+        } else {
+            Result.DEFEAT
+        }
     }
 
     fun getScore(): Score {
@@ -30,17 +33,18 @@ data class Round(
             }
         }
     }
-
 }
 
 typealias Score = Int
 
+@Suppress("MagicNumber")
 enum class Choice(val score: Score) {
     ROCK(1),
     PAPER(2),
     SCISSOR(3),
 }
 
+@Suppress("MagicNumber")
 enum class Result(val score: Score) {
     VICTORY(6),
     DEFEAT(0),

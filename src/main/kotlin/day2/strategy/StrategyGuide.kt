@@ -4,6 +4,7 @@ import day2.game.Match
 import java.nio.file.Path
 import kotlin.io.path.forEachLine
 
+@Suppress("UnnecessaryAbstractClass")
 abstract class StrategyGuide(private val strategies: List<Strategy>) {
 
     fun toMatch(): Match {
@@ -13,7 +14,7 @@ abstract class StrategyGuide(private val strategies: List<Strategy>) {
     }
 
     companion object {
-        fun <S: Strategy, SG: StrategyGuide> fromPath(
+        fun <S : Strategy, SG : StrategyGuide> fromPath(
             path: Path,
             strategyConstrutor: (column1: Column1, column2: Column2) -> S,
             strategyGuideConstrutor: (strategies: List<S>) -> SG

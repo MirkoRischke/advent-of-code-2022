@@ -5,7 +5,7 @@ import day2.strategy.StrategyGuideV1
 import day2.strategy.StrategyGuideV2
 import java.nio.file.Path
 
-class Day2Solver: Solver<Int> {
+class Day2Solver : Solver<Int> {
 
     override fun solveFirstPuzzle(input: Path): Int {
         return StrategyGuideV1.fromPath(input)

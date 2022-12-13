@@ -43,5 +43,4 @@ class Day5SolverTest : DescribeSpec({
             result shouldBe "CQQBBJFCS"
         }
     }
-
 })

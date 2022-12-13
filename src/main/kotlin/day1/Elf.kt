@@ -11,5 +11,4 @@ class Elf {
     fun addFood(food: Food) {
         this.food.add(food)
     }
-
 }

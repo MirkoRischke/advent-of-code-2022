@@ -43,5 +43,4 @@ class Day4SolverTest : DescribeSpec({
             result shouldBe 804
         }
     }
-
 })

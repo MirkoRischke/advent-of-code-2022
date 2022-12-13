@@ -28,33 +28,37 @@ class StrategyGuideV2Test : DescribeSpec({
 
             val match = strategyGuide.toMatch()
 
-            match shouldBe Match(listOf(
-                Round(Choice.ROCK, Choice.ROCK),
-                Round(Choice.PAPER, Choice.ROCK),
-                Round(Choice.SCISSOR, Choice.ROCK),
-            ))
+            match shouldBe Match(
+                listOf(
+                    Round(Choice.ROCK, Choice.ROCK),
+                    Round(Choice.PAPER, Choice.ROCK),
+                    Round(Choice.SCISSOR, Choice.ROCK),
+                )
+            )
         }
     }
 
     describe("fromPath") {
         it("parses file to strategyGuide") {
             val file = tempfile()
-            file.writeText("""
+            file.writeText(
+                """
                 A Y
                 B X
                 C Z
-            """.trimIndent())
+                """.trimIndent()
+            )
 
             val strategyGuide = StrategyGuideV2.fromPath(file.toPath())
 
-            val expectedStrategyGuide = StrategyGuideV2(listOf(
-                StrategyV2(Column1.A, Column2.Y),
-                StrategyV2(Column1.B, Column2.X),
-                StrategyV2(Column1.C, Column2.Z),
-            ))
+            val expectedStrategyGuide = StrategyGuideV2(
+                listOf(
+                    StrategyV2(Column1.A, Column2.Y),
+                    StrategyV2(Column1.B, Column2.X),
+                    StrategyV2(Column1.C, Column2.Z),
+                )
+            )
             strategyGuide shouldBe expectedStrategyGuide
-
         }
     }
-
 })

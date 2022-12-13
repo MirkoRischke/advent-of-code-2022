@@ -12,8 +12,8 @@ data class AssignmentPair(private val assignment1: Assignment, private val assig
         val assignment2EndsWithinAssignment1 =
             assignment2.endSection >= assignment1.startSection && assignment2.endSection <= assignment1.endSection
         return assignment2StartsWithinAssignment1 ||
-                assignment2EndsWithinAssignment1 ||
-                assignment2.contains(assignment1)
+            assignment2EndsWithinAssignment1 ||
+            assignment2.contains(assignment1)
     }
 
     companion object {
@@ -26,5 +26,4 @@ data class AssignmentPair(private val assignment1: Assignment, private val assig
             )
         }
     }
-
 }

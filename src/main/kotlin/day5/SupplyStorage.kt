@@ -1,9 +1,11 @@
 package day5
 
+private const val CHARS_UNTIL_NEXT_STACK = 4
+
 class SupplyStorage(
     private val stacks: List<Stack>,
     private val crane: Crane
-    ) {
+) {
     fun getStack(position: Int): Stack {
         return stacks[position - 1]
     }
@@ -34,13 +36,15 @@ class SupplyStorage(
         }
 
         private fun addContainersFromLine(firstLine: String, storage: SupplyStorage) {
-            firstLine.chunked(4).forEachIndexed { index, string ->
-                val letterIndex = string.indexOf('[') + 1
-                val crate = string[letterIndex]
-                if (crate.isLetter()) {
-                    storage.getStack(index + 1).addCrate(crate.toString())
+            firstLine
+                .chunked(CHARS_UNTIL_NEXT_STACK)
+                .forEachIndexed { index, string ->
+                    val letterIndex = string.indexOf('[') + 1
+                    val crate = string[letterIndex]
+                    if (crate.isLetter()) {
+                        storage.getStack(index + 1).addCrate(crate.toString())
+                    }
                 }
-            }
         }
     }
 }

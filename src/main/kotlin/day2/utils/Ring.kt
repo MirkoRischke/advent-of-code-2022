@@ -12,8 +12,6 @@ class Ring<T>(private vararg val elements: T) {
     }
 
     init {
-        if (elements.isEmpty()) {
-            throw IllegalArgumentException("At least one element is required")
-        }
+        require(elements.isNotEmpty()) { "At least one element is required" }
     }
 }

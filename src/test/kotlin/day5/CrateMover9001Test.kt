@@ -9,16 +9,20 @@ class CrateMover9001Test : DescribeSpec({
 
     describe("moveCrates") {
         it("moves multiple crates at once") {
-            val stack1 = Stack(listOf(
-                "A",
-                "B",
-                "C"
-            ))
-            val stack2 = Stack(listOf(
-                "D",
-                "E",
-                "F",
-            ))
+            val stack1 = Stack(
+                listOf(
+                    "A",
+                    "B",
+                    "C"
+                )
+            )
+            val stack2 = Stack(
+                listOf(
+                    "D",
+                    "E",
+                    "F",
+                )
+            )
 
             crane.moveCrates(stack1, stack2, 2)
 
@@ -26,5 +30,4 @@ class CrateMover9001Test : DescribeSpec({
             stack2.getCrates() shouldBe listOf("D", "E", "F", "B", "C")
         }
     }
-
 })

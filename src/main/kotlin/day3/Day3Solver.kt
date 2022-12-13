@@ -4,6 +4,8 @@ import Solver
 import java.nio.file.Path
 import kotlin.io.path.useLines
 
+private const val ELF_GROUP_SIZE = 3
+
 class Day3Solver : Solver<Int> {
     override fun solveFirstPuzzle(input: Path): Int {
         return input.useLines { lines ->
@@ -19,7 +21,7 @@ class Day3Solver : Solver<Int> {
         return input.useLines { lines ->
             lines
                 .map { Rucksack.fromString(it) }
-                .chunked(3)
+                .chunked(ELF_GROUP_SIZE)
                 .sumOf { Item(ElfGroup(it).badge).score }
         }
     }

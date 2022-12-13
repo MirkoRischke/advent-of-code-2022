@@ -20,7 +20,7 @@ class ElfTest : BehaviorSpec({
 
         When("I add one food item") {
             val calories = 1000
-            val someFood = Food(calories);
+            val someFood = Food(calories)
             elf.addFood(someFood)
 
             Then("the total amount of calories equals the calories of the food item") {
@@ -37,6 +37,4 @@ class ElfTest : BehaviorSpec({
             }
         }
     }
-
-
 })

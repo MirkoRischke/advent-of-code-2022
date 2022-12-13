@@ -47,5 +47,4 @@ class StackTest : DescribeSpec({
             stack.getCrates() shouldBe crates
         }
     }
-
 })
