@@ -17,6 +17,10 @@ class Stack(crates: List<Crate> = emptyList()) {
         crates.add(crate)
     }
 
+    fun getCrates(): List<Crate> {
+        return crates
+    }
+
     fun removeCrate(): Crate {
         return crates.removeLast()
     }

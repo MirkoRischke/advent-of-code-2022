@@ -39,5 +39,13 @@ class StackTest : DescribeSpec({
         }
     }
 
+    describe("getCrates") {
+        it("returns an immutable list") {
+            val crates = listOf("A", "B")
+            val stack = Stack(crates)
+
+            stack.getCrates() shouldBe crates
+        }
+    }
 
 })
