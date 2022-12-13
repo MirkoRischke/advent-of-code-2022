@@ -25,4 +25,23 @@ class Day5SolverTest : DescribeSpec({
             result shouldBe "RFFFWBPNS"
         }
     }
+
+    describe("puzzle 2") {
+        it("example input") {
+            val input = ResourceHelper.pathFor("/day5/example_input.txt")
+
+            val result = solver.solveSecondPuzzle(input)
+
+            result shouldBe "MCD"
+        }
+
+        it("personal input") {
+            val input = ResourceHelper.pathFor("/day5/personal_input.txt")
+
+            val result = solver.solveSecondPuzzle(input)
+
+            result shouldBe "CQQBBJFCS"
+        }
+    }
+
 })
