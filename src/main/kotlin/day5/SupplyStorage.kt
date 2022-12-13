@@ -1,20 +1,19 @@
 package day5
 
-class SupplyStorage(private val stacks: List<Stack>) {
+class SupplyStorage(
+    private val stacks: List<Stack>,
+    private val crane: Crane
+    ) {
     fun getStack(position: Int): Stack {
         return stacks[position - 1]
     }
 
-    fun moveCrate(from: Int, to: Int) {
-        val crate = getStack(from).removeCrate()
-
-        getStack(to).addCrate(crate)
-    }
-
     fun moveCrates(from: Int, to: Int, amount: Int) {
-        repeat(amount) {
-            moveCrate(from, to)
-        }
+        crane.moveCrates(
+            getStack(from),
+            getStack(to),
+            amount
+        )
     }
 
     fun getTopCrates(): List<Crate> {
@@ -22,10 +21,10 @@ class SupplyStorage(private val stacks: List<Stack>) {
     }
 
     companion object {
-        fun fromDrawing(drawing: List<String>): SupplyStorage {
+        fun fromDrawing(drawing: List<String>, crane: Crane): SupplyStorage {
             val numberOfStacks = drawing.last().split("   ").last().toInt()
             val stacks = List(numberOfStacks) { Stack() }
-            val storage = SupplyStorage(stacks)
+            val storage = SupplyStorage(stacks, crane)
 
             drawing.reversed().drop(1).forEach {
                 addContainersFromLine(it, storage)
