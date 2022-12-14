@@ -10,6 +10,23 @@ class Day6SolverTest : DescribeSpec({
 
     val solver = Day6Solver()
 
+    describe("charArray.isDistinct") {
+        it("returns true when there are only distinct chars") {
+            val uniqueChars = "abc"
+            val result = uniqueChars.toCharArray().isDistinct()
+
+            result shouldBe true
+        }
+
+        it("returns false when there are duplicated chars") {
+            val duplicatedA = "abac"
+
+            val result = duplicatedA.toCharArray().isDistinct()
+
+            result shouldBe false
+        }
+    }
+
     describe("first puzzle") {
         describe("sample input") {
             listOf(
@@ -37,7 +54,7 @@ class Day6SolverTest : DescribeSpec({
 
             val result = solver.solveFirstPuzzle(input)
 
-            result shouldBe 1
+            result shouldBe 1578
         }
     }
 })
