@@ -57,4 +57,35 @@ class Day6SolverTest : DescribeSpec({
             result shouldBe 1578
         }
     }
+
+    describe("second puzzle") {
+        describe("sample input") {
+            listOf(
+                "mjqjpqmgbljsphdztnvjfqwrcgsmlb" to 19,
+                "bvwbjplbgvbhsrlpgdmjqwftvncz" to 23,
+                "nppdvjthqldpwncqszvftbrmjlhg" to 23,
+                "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg" to 29,
+                "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw" to 26
+            ).forAll { (string, expected) ->
+                it("returns $expected for $string") {
+                    val input = tempfile().run {
+                        writeText(string)
+                        toPath()
+                    }
+
+                    val result = solver.solveSecondPuzzle(input)
+
+                    result shouldBe expected
+                }
+            }
+        }
+
+        it("works for personal input") {
+            val input = ResourceHelper.pathFor("/day6/personal_input.txt")
+
+            val result = solver.solveSecondPuzzle(input)
+
+            result shouldBe 2178
+        }
+    }
 })
